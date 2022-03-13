@@ -1,0 +1,83 @@
+               
+                    ********************** ASP.NET IDENTITY **********************
+
+-> Yeni Nesil Üyelik sistemi için geliştirilmiş kütüphanedir.
+-> Otomatik custom tablolar oluşturur.
+
+Temel kavramlar
+---------------
+
+1.) Cookie
+
+ -> Üye bilgilerinin kullanıcının pc sinde tutmaya yarar. Key-Value şeklinde tutar
+ -> Üyelik gerektiren ve login sayfası olan sitelerde, kullanıcıyı her seferine login sayfasına yönlendirmek yerine
+cookie den okunan bilgilerle gerekli sayfalaa yönlendirme işlemi yapılır
+
+2.) Authentication
+
+ -> Kimlik doğrulama, böyle bir kullanıcı var mı ?
+
+3.) Authorization
+  
+ -> Yetki
+
+4.) Claims
+
+ -> Kullanıcı hakkında bilgiler tutulur. Key-value şeklinde
+
+5.) Role
+
+ -> Kullanıcı rolü siteye üye olan kullanıcılaın yetki alanlarını belirlemek içindir.
+
+6.) Third party Authentication
+
+ -> Facebook, Google vs. ile giriş
+
+Asp.Net Core Identity'nin kurulması
+-----------------------------------
+
+IdentityDbContext, IdentityUser, IdentityRole vb. class lardan miras alınması gerekir
+
+Not : Kullanıcıların kayıt olduğu tablolarda, örneğin User tablosuın Primary Key'i güvenlik açısından GUID olarak tutulmalıdır
+
+Asp.Net Core Identity mekanizmasıda Validation işlemleri için
+-------------------------------------------------------------
+
+    // Yazdığınız Attribute lar üzerinden Client Side Validation yapılmasını istiyorsan
+
+    // Client Side Validation için "jquery-validation" ve "jquery-validation-unobtrusive" kütüphanesi eklemelidir.
+
+    // Proje'ye Sağ Tık > Add > Client-Side Library  => "jquery-validate" & "jquery-validation-unobtrusive" 
+
+Cookie bazlı doğrulama
+----------------------------
+
+Cookie güvenliği için bu ayarlar önemli;
+-> SameSiteMode.Lax
+-> SameSiteMode.Strict  
+
+
+// CookieSecurePolicy.Always => Browser, https üzerinden bir istek geldiyse kullanıcının cookie bilgilerini sunucuya gönderir
+// CookieSecurePolicy.SameAsRequest => 
+// CookieSecurePolicy.None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
